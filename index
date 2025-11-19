@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>День рождения Надежды · 45 лет</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --accent: #EF5F18;    /* яркий акцент */
+      --text-main: #251465; /* основной текст */
+      --text-muted: #9C7764;/* вторичный текст */
+      --bg-soft: #9C7764;   /* мягкие плашки/бордеры */
+      --card-bg: #FFFFFF;
+      --border-soft: #9C7764;
+      --radius-lg: 24px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #251465 0, #ffffff 55%, #ffffff 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .shell {
+      max-width: 960px;
+      margin: 16px auto;
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 24px 20px 32px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    @media (min-width: 768px) {
+      .shell {
+        margin: 32px auto;
+        padding: 40px 48px 44px;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(239, 95, 24, 0.08);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(239, 95, 24, 0.25);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .title {
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.1;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    /* Сетка: на телефоне одна колонка, на десктопе две */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px 18px;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 22px 22px 20px;
+      }
+    }
+
+    /* Одинаковая минимальная высота карточек только на больших экранах */
+    @media (min-width: 1024px) {
+      .card {
+        min-height: 280px;
+      }
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+    }
+
+    .card-tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(156, 119, 100, 0.15);
+      color: var(--text-main);
+      white-space: nowrap;
+      opacity: 0.9;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: minmax(0, 120px) minmax(0, 1fr);
+      row-gap: 8px;
+      column-gap: 8px;
+      font-size: 15px;
+    }
+
+    dt {
+      color: var(--text-muted);
+    }
+
+    dd {
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      dl {
+        grid-template-columns: 1fr;
+      }
+
+      dt {
+        margin-top: 6px;
+      }
+
+      dl dt:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    .hint {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .accent {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .link-accent {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(239, 95, 24, 0.25);
+    }
+
+    .link-accent:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .cta-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .button-primary,
+    .button-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition:
+        transform 0.1s ease,
+        box-shadow 0.1s ease,
+        background 0.15s ease,
+        border-color 0.15s ease,
+        opacity 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #ffffff;
+      border: 1px solid var(--accent);
+      box-shadow: 0 12px 30px rgba(239, 95, 24, 0.35);
+    }
+
+    .button-primary span.icon {
+      font-size: 16px;
+      margin-left: 2px;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(239, 95, 24, 0.45);
+    }
+
+    .button-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 18px rgba(239, 95, 24, 0.35);
+      opacity: 0.95;
+    }
+
+    .button-ghost {
+      background: #ffffff;
+      color: var(--text-main);
+      border: 1px solid rgba(156, 119, 100, 0.6);
+    }
+
+    .button-ghost span.icon {
+      font-size: 16px;
+    }
+
+    .button-ghost:hover {
+      background: rgba(156, 119, 100, 0.06);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    .program-list {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-main);
+      display: grid;
+      gap: 6px;
+      padding-left: 0;
+      margin-top: 4px;
+    }
+
+    .program-list li::before {
+      content: "•";
+      display: inline-block;
+      margin-right: 6px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.08),
+        rgba(0, 0, 0, 0)
+      );
+      margin: 24px 0 20px;
+    }
+
+    .footnote {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    @media (max-width: 480px) {
+      .footnote {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Блок карты */
+    .map-section {
+      margin-top: 24px;
+    }
+
+    .map-embed {
+      margin-top: 12px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      День рождения Надежды · 45 лет
+    </div>
+
+    <header class="header">
+      <h1 class="title">Вечеринка в честь Надежды.</h1>
+      <p class="subtitle">
+        Друзья мои! Наступает мое 45-летие, и я хочу праздновать его вместе с вами!
+        Приглашаю на мероприятие, где будет много музыки, танцев и веселья.
+        Буду рада видеть каждого из вас!
+      </p>
+    </header>
+
+    <section class="grid" aria-label="Информация о событии">
+      <!-- 1. ГЛАВНОЕ -->
+      <article class="card">
+        <div class="card-header">
+          <h2 class="card-title">Главное</h2>
+          <span class="card-tag">Для друзей Надежды</span>
+        </div>
+        <dl>
+          <dt>Дата и время</dt>
+          <dd>03 декабря 2025, 19:00&nbsp;&mdash; 23:30</dd>
+
+          <dt>Место</dt>
+          <dd>Москва, &laquo;Ресторан&raquo;</dd>
+
+          <dt>Дресс-код</dt>
+          <dd>Smart casual с ярким акцентом (можно в оранжевом или синем).</dd>
+        </dl>
+
+        <p class="hint">
+          Если планы изменятся и вы не сможете прийти, пожалуйста,
+          дайте знать заранее в чате вечеринки.
+        </p>
+      </article>
+
+      <!-- 2. КАК ПРИСОЕДИНИТЬСЯ -->
+      <article class="card">
+        <div class="card-header">
+          <h2 class="card-title">Как присоединиться</h2>
+          <span class="card-tag">Дайте знать, что будете</span>
+        </div>
+
+        <div class="cta-block">
+          <div class="button-row">
+            <a
+              class="button-primary"
+              href="https://chat.whatsapp.com/CSCMTvoxoPT0CqsogdWp4g"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Вступить в чат вечеринки
+              <span class="icon">↗</span>
+            </a>
+          </div>
+
+          <p class="note">
+            В чате будет вся актуальная информация: точный адрес, детали программы,
+            новости перед праздником и немного закулисья подготовки.
+          </p>
+        </div>
+      </article>
+
+      <!-- 3. ПРОГРАММА -->
+      <article class="card">
+        <div class="card-header">
+          <h2 class="card-title">Примерная программа</h2>
+          <span class="card-tag">Музыка, танцы и смех</span>
+        </div>
+        <ul class="program-list">
+          <li>Welcome-зона, бокал за знакомство и тёплые объятия.</li>
+          <li>Музыка и танцы &mdash; от спокойных до очень бодрых треков.</li>
+          <li>Немного сюрпризов и тостов для именинницы.</li>
+          <li>Неформальное общение до тех пор, пока всем хорошо.</li>
+        </ul>
+      </article>
+
+      <!-- 4. ОРГВОПРОСЫ -->
+      <article class="card">
+        <div class="card-header">
+          <h2 class="card-title">Оргвопросы</h2>
+        </div>
+        <p class="note">
+          Если у вас есть аллергии, ограничения по питанию или другие пожелания
+          (по музыке, напиткам или формату), напишите, пожалуйста, об этом в чате
+          или лично Надежде. Это поможет сделать вечер комфортным для всех.
+        </p>
+
+        <div class="button-row" style="margin-top: 10px;">
+          <a
+            class="button-ghost"
+            href="https://chat.whatsapp.com/CSCMTvoxoPT0CqsogdWp4g"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Написать в чат
+            <span class="icon">💬</span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- КАРТА (если нужна для дня рождения, оставляем) -->
+    <section class="map-section" aria-label="Карта места праздника">
+      <article class="card">
+        <div class="card-header">
+          <h2 class="card-title">Как добраться</h2>
+        </div>
+        <p class="note">
+          На карте отмечено место праздника. Масштаб можно менять, карту &mdash; двигать.
+        </p>
+        <div class="map-embed">
+          <script
+            type="text/javascript"
+            charset="utf-8"
+            async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A774209c7dbcd2a2f1aaa82b09eca0856107c5e8f079b9b22da34f056feae1c3f&width=100%25&height=320&lang=ru_RU&scroll=true">
+          </script>
+        </div>
+      </article>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <footer class="footnote">
+      <span>День рождения Надежды · 45 лет</span>
+      <span>Музыка, танцы и много улыбок</span>
+    </footer>
+  </main>
+</body>
+</html>
