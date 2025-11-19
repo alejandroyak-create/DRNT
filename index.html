@@ -154,13 +154,6 @@
       opacity: 0.9;
     }
 
-    .card-gif video {
-  max-width: 100%;
-  height: auto;
-  border-radius: 18px;
-  display: block;
-}
-
     dl {
       display: grid;
       grid-template-columns: minmax(0, 120px) minmax(0, 1fr);
@@ -347,6 +340,20 @@
       border-radius: 16px;
       overflow: hidden;
     }
+
+    /* Карточка с видео */
+    .card-media {
+      padding: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-media video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 18px;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -357,7 +364,7 @@
     </div>
 
     <header class="header">
-      <h1 class="title">Надежде 45</h1>
+      <h1 class="title">Вечеринка в честь Надежды</h1>
       <p class="subtitle">
         Друзья мои! Наступает мое 45-летие, и я хочу праздновать его вместе с вами!
         Приглашаю на мероприятие, где будет много музыки, танцев и веселья.
@@ -372,7 +379,6 @@
           <h2 class="card-title">Главное</h2>
           <span class="card-tag">Для друзей Надежды</span>
         </div>
-        <dl>
           <dt>Дата и время</dt>
           <dd>13 декабря 2025, 15:00</dd>
 
@@ -423,29 +429,28 @@
           <span class="card-tag">Музыка, танцы и смех</span>
         </div>
         <ul class="program-list">
-          <li>Welcome-зона, бокал за встречу и тёплые объятия.</li>
+          <li>Welcome-зона, бокал за знакомство и тёплые объятия.</li>
           <li>Музыка и танцы &mdash; от спокойных до очень бодрых треков.</li>
           <li>Немного сюрпризов и тостов для именинницы.</li>
           <li>Неформальное общение до тех пор, пока всем хорошо.</li>
         </ul>
       </article>
 
-      <!-- 4. ОРГВОПРОСЫ -->
-      <!-- 4. GIF вместо оргвопросов -->
-      <article class="card card-gif" aria-label="Анимация-приглашение">
-  <video
-    autoplay
-    loop
-    muted
-    playsinline
-    class="gif-video"
-  >
-    <source src="invite.mp4" type="video/mp4" />
-    Ваш браузер не поддерживает воспроизведение видео.
-  </video>
-</article>
-      
-    <!-- КАРТА (если нужна для дня рождения, оставляем) -->
+      <!-- 4. ВИДЕО вместо оргвопросов -->
+      <article class="card card-media" aria-label="Видео-приглашение">
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+        >
+          <source src="invite.mp4" type="video/mp4" />
+          Ваш браузер не поддерживает воспроизведение видео.
+        </video>
+      </article>
+    </section>
+
+    <!-- КАРТА места праздника -->
     <section class="map-section" aria-label="Карта места праздника">
       <article class="card">
         <div class="card-header">
