@@ -154,6 +154,13 @@
       opacity: 0.9;
     }
 
+    .card-gif video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  display: block;
+}
+
     dl {
       display: grid;
       grid-template-columns: minmax(0, 120px) minmax(0, 1fr);
@@ -426,10 +433,18 @@
       <!-- 4. ОРГВОПРОСЫ -->
       <!-- 4. GIF вместо оргвопросов -->
       <article class="card card-gif" aria-label="Анимация-приглашение">
-        <img src="1.gif" alt="Приглашение на день рождения Надежды" />
-      </article>
-    </section>
-
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    class="gif-video"
+  >
+    <source src="invite.mp4" type="video/mp4" />
+    Ваш браузер не поддерживает воспроизведение видео.
+  </video>
+</article>
+      
     <!-- КАРТА (если нужна для дня рождения, оставляем) -->
     <section class="map-section" aria-label="Карта места праздника">
       <article class="card">
