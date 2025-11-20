@@ -330,6 +330,20 @@
       }
     }
 
+    .button-label {
+  display: inline-block;
+  text-align: left;
+  font-size: 1.5rem;   /* примерно как h2 */
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.button-label-sub {
+  display: block;      /* перенос на вторую строку */
+  font-size: 0.8rem;   /* маленький текст */
+  font-weight: 400;
+}
+    
     /* Блок карты */
     .map-section {
       margin-top: 24px;
@@ -364,7 +378,7 @@
     </div>
 
     <header class="header">
-      <h1 class="title">Вечеринка в честь Надежды</h1>
+      <h1 class="title">45- баба ягодка опять</h1>
       <p class="subtitle">
         Друзья мои! Наступает мое 45-летие, и я хочу праздновать его вместе с вами!
         Приглашаю на мероприятие, где будет много музыки, танцев и веселья.
@@ -386,7 +400,7 @@
           <dd>Москва, пр-т Буденного, д.30-а</dd>
 
           <dt>Дресс-код</dt>
-          <dd>Все, что позволяет вам свободно двигаться на танцполе, но пожалуйста, оставайтесь одетыми!</dd>
+          <dd>Все, что позволяет вам свободно двигаться, но пожалуйста, оставайтесь одетыми!</dd>
         </dl>
 
         <p class="hint">
@@ -405,19 +419,22 @@
 </span>
         </div>
 
-        <div class="cta-block">
-          <div class="button-row">
-            <a
-              class="button-primary"
-              href="https://chat.whatsapp.com/CSCMTvoxoPT0CqsogdWp4g"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              А мы не возражаем!
-  <small>Вступить в чат</small>
-              <span class="icon">↗</span>
-            </a>
-          </div>
+<div class="cta-block">
+  <div class="button-row">
+    <a
+      class="button-primary"
+      href="https://chat.whatsapp.com/CSCMTvoxoPT0CqsogdWp4g"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <span class="button-label">
+        А мы не возражаем!
+        <span class="button-label-sub">Вступить в чат</span>
+      </span>
+      <span class="icon">↗</span>
+    </a>
+  </div>
+</div>
 
           <p class="note">
             В чате будет вся актуальная информация, а еще фотки после праздника!
@@ -432,7 +449,7 @@
           <span class="card-tag">Музыка, танцы и смех</span>
         </div>
         <ul class="program-list">
-          <li>Welcome-зона, бокал за знакомство и тёплые объятия.</li>
+          <li>Welcome-зона, бокал за встречу и тёплые объятия.</li>
           <li>Музыка и танцы &mdash; все наши любимые треки.</li>
           <li>Немного сюрпризов и тостов для именинницы.</li>
           <li>Неформальное общение до тех пор, пока всем хорошо.</li>
