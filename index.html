@@ -183,7 +183,45 @@
         margin-top: 0;
       }
     }
+    
+/* Центровка */
+.birthday-header {
+  text-align: center;
+}
 
+/* Общий стиль заголовка */
+.birthday-title {
+  margin-bottom: 12px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Крупная «45» */
+.big-number {
+  font-size: 64px;
+  font-weight: 700;
+  color: #EF5F18; /* акцентный цвет */
+  display: block;
+}
+
+/* Строка «баба ягодка опять» */
+.tagline {
+  font-size: 26px;
+  font-weight: 500;
+  color: #251465; /* основной цвет */
+  display: block;
+  margin-top: 4px;
+}
+
+/* Более крупная версия на больших экранах */
+@media (min-width: 768px) {
+  .big-number {
+    font-size: 82px;
+  }
+  .tagline {
+    font-size: 32px;
+  }
+}
     .hint {
       margin-top: 14px;
       font-size: 13px;
@@ -381,15 +419,18 @@
       День рождения Надежды
     </div>
 
-    <header class="header">
-      <h1 class="title">45<br>
-        баба ягодка опять</h1>
-      <p class="subtitle">
-        Друзья мои! Наступает мое 45-летие, и я хочу праздновать его вместе с вами!
-        Приглашаю на мероприятие, где будет много музыки, танцев и веселья.
-        Буду рада видеть каждого из вас!
-      </p>
-    </header>
+   <header class="header birthday-header">
+  <h1 class="title birthday-title">
+    <span class="big-number">45</span><br>
+    <span class="tagline">баба ягодка опять</span>
+  </h1>
+
+  <p class="subtitle">
+    Друзья мои! Наступает мое 45-летие, и я хочу праздновать его вместе с вами!
+    Приглашаю на мероприятие, где будет много музыки, танцев и веселья.
+    Буду рада видеть каждого из вас!
+  </p>
+</header>
 
     <section class="grid" aria-label="Информация о событии">
       <!-- 1. ГЛАВНОЕ -->
@@ -399,7 +440,7 @@
           <span class="card-tag">Для друзей Надежды</span>
         </div>
           <dt>Дата и время</dt>
-          <dd>13 декабря 2025, 15:00</dd>
+          <dd>13 декабря 2025, 16:00</dd>
 
           <dt>Место</dt>
           <dd>Москва, пр-т Буденного, д.30-а</dd>
@@ -452,7 +493,7 @@
           <li>Welcome-зона, бокал за встречу и тёплые объятия.</li>
           <li>Музыка и танцы &mdash; все наши любимые треки.</li>
           <li>Немного сюрпризов и тостов для именинницы.</li>
-          <li>Неформальное общение до тех пор, пока всем хорошо.</li>
+          <li>Море общения.</li>
         </ul>
       </article>
 
